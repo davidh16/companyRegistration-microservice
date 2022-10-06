@@ -1,0 +1,20 @@
+syntax="proto3";
+package main;
+option go_package="/.";
+
+message CompanyRegisterRequest{
+  int64 OIB = 2;
+  string Name = 3;
+  string Address = 4;
+}
+
+message RegisteredCompany{
+  int64 ID = 1;
+  int64 OIB = 2;
+  string Name = 3;
+  string Address = 4;
+}
+
+service CompanyRegistration{
+  rpc registerCompany(CompanyRegisterRequest) returns(RegisteredCompany) {}
+}
